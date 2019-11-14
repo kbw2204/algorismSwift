@@ -16,3 +16,12 @@ var arr: [Int] = [1, 5, 2, 6, 3, 7, 4]
 arr.sorted()
 //[1, 2, 3, 4, 5, 6, 7]
 ~~~
+
+## [String](https://developer.apple.com/documentation/swift/string)
+
+### String 자른 후 String.Element?
+~~~
+var str = "Hello, playground"
+var a = str.first // var a: String.Element?
+
+~~~
