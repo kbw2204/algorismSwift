@@ -19,10 +19,46 @@ arr.sorted()
 
 ## [String](https://developer.apple.com/documentation/swift/string)
 
+### String 추가
+
+~~~
+var variableString = "Horse"
+variableString += " and carriage"
+// variableString is now "Horse and carriage"
+
+var welcome = "hello"
+welcome.insert("!", at: welcome.endIndex)
+// welcome now equals "hello!"
+
+welcome.insert(contentsOf: " there", at: welcome.index(before: welcome.endIndex))
+// welcome now equals "hello there!"
+~~~
+
+### String 삭제
+~~~
+welcome.remove(at: welcome.index(before: welcome.endIndex))
+// welcome now equals "hello there"
+
+let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+welcome.removeSubrange(range)
+// welcome now equals "hello"
+~~~
+
 ### String 자른 후 String.Element?
 ~~~
 var str = "Hello, playground"
 var a = str.first // var a: String.Element?
+~~~
+
+### SubString
+~~~
+let greeting = "Hello, world!"
+let index = greeting.firstIndex(of: ",") ?? greeting.endIndex
+let beginning = greeting[..<index]
+// beginning is "Hello"
+
+// Convert the result to a String for long-term storage.
+let newString = String(beginning)
 ~~~
 
 ### String for 문
@@ -38,6 +74,15 @@ for c in str {
 //f
 ~~~
 
+### String을 Character 값에 따라 나누기
+
+~~~
+let name = "Marie Curie"
+let firstSpace = name.firstIndex(of: " ") ?? name.endIndex
+let firstName = name[..<firstSpace]
+// firstName == "Marie"
+~~~
+
 ### String 기준점 나누기
 
 ~~~
@@ -49,3 +94,4 @@ let after: String = String(str[dividePoint...])
 print("before: \(before) / after: \(after)")
 //before: 123 / after: 4567
 ~~~
+
