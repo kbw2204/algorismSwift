@@ -44,6 +44,12 @@ welcome.removeSubrange(range)
 // welcome now equals "hello"
 ~~~
 
+### String 특정 문자 삭제
+~~~
+var str = "Hello~!Test"
+str.components(separatedBy: ["~","!"]).joined() // "HelloTest"
+~~~
+
 ### String 자른 후 String.Element?
 ~~~
 var str = "Hello, playground"
