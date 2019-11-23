@@ -13,12 +13,15 @@ let b: : ArraySlice<Int> = a[3..<6] // [4, 5, 6]
 </details>
 
 <details><summary>정렬</summary>
+
 ~~~
 var arr: [Int] = [1, 5, 2, 6, 3, 7, 4]
 arr.sorted()
 //[1, 2, 3, 4, 5, 6, 7]
 ~~~
+
 </details>
+
 ## [String](https://developer.apple.com/documentation/swift/string)
 
 ### String 추가
