@@ -24,7 +24,7 @@ arr.sorted()
 
 ## [String](https://developer.apple.com/documentation/swift/string)
 
-### String 추가
+<details><summary>String 추가</summary>
 
 ~~~
 var variableString = "Horse"
@@ -39,7 +39,10 @@ welcome.insert(contentsOf: " there", at: welcome.index(before: welcome.endIndex)
 // welcome now equals "hello there!"
 ~~~
 
-### String 삭제
+</details>
+
+<details><summary>String 삭제</summary>
+
 ~~~
 welcome.remove(at: welcome.index(before: welcome.endIndex))
 // welcome now equals "hello there"
@@ -49,19 +52,28 @@ welcome.removeSubrange(range)
 // welcome now equals "hello"
 ~~~
 
-### String 특정 문자 삭제
+</details>
+
+<details><summary>String 특정 문자 삭제</summary>
+
 ~~~
 var str = "Hello~!Test"
 str.components(separatedBy: ["~","!"]).joined() // "HelloTest"
 ~~~
 
-### String 자른 후 String.Element?
+</details>
+
+<details><summary>String 자른 후 String.Element?</summary>
+
 ~~~
 var str = "Hello, playground"
 var a = str.first // var a: String.Element?
 ~~~
 
-### SubString
+</details>
+
+<details><summary>SubString</summary>
+
 ~~~
 let greeting = "Hello, world!"
 let index = greeting.firstIndex(of: ",") ?? greeting.endIndex
@@ -72,7 +84,10 @@ let beginning = greeting[..<index]
 let newString = String(beginning)
 ~~~
 
-### String for 문
+</details>
+
+<details><summary>String for 문</summary>
+
 ~~~
 let str: String = "abcdf"
 for c in str {
@@ -85,7 +100,9 @@ for c in str {
 //f
 ~~~
 
-### String을 Character 값에 따라 나누기
+</details>
+
+<details><summary>String을 Character 값에 따라 나누기</summary>
 
 ~~~
 let name = "Marie Curie"
@@ -94,7 +111,9 @@ let firstName = name[..<firstSpace]
 // firstName == "Marie"
 ~~~
 
-### String 기준점 나누기
+</details>
+
+<details><summary>String 기준점 나누기</summary>
 
 ~~~
 let str: String = "1234567"
@@ -106,3 +125,4 @@ print("before: \(before) / after: \(after)")
 //before: 123 / after: 4567
 ~~~
 
+</details>
