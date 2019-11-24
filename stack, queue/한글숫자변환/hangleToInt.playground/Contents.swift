@@ -86,4 +86,28 @@ func makeInt(_ str: String) -> Int {
     return num
 }
 
+func makeString(number: Int) -> String {
+    var result: String = ""
+    let pos = ["","십","백","천","만","십","백","천","억"]
+    let dic: [Int:String] = [1:"일",2:"이",3:"삼",4:"사",5:"오",6:"육",7:"칠",8:"팔",9:"구"]
+    var num = number
+    if num < 0 {
+        result += "-"
+        num = abs(number)
+    }
+    var strArray = String(num).map{String($0)}
+    while strArray.count > 0 {
+        if let val = dic[Int(strArray.removeFirst())!] {
+            if val == "일" && pos[strArray.count] == "십" {
+                result += pos[strArray.count]
+                continue
+            }
+            result += val
+            result += pos[strArray.count]
+        }
+    }
+    return result
+}
+
 print(makeInt("구천오백십일만삼천팔백일"))
+print(makeString(number: 95113801))
