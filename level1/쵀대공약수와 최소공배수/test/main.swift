@@ -42,7 +42,7 @@ for i in 0 ..< testInput.count {
     }
 }
 
-// 와우;; 꼭 메소드 안만들어도 재귀가 되는구나
+// 
 
 //func gcd(_ a: Int, _ b: Int) -> Int {
 //    let mod: Int = a % b
