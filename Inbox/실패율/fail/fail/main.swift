@@ -15,17 +15,36 @@
 
 import Foundation
 
+
 func solution(_ N:Int, _ stages:[Int]) -> [Int] {
     // 최종 스테이지: N+1
     let max = stages.count
-    var result: [Int:Double] = [:]
-    result[1] = Double(stages.filter{$0 == 1}.count) / Double(max)
-    for i in 2 ..< N+1 {
-        let parent = max - stages.filter{$0 < i}.count
-        result[i] = Double(stages.filter{$0 == i}.count) / Double(parent)
+//    var result: [Int:Double] = [:]
+//    result[1] = Double(stages.filter{$0 == 1}.count) / Double(max)
+//    for i in 2 ..< N+1 {
+//        let parent = max - stages.filter{$0 < i}.count
+//        result[i] = Double(stages.filter{$0 == i}.count) / Double(parent)
+//    }
+    var arr1: [Double] = Array<Double>(repeating: 0.0, count: N)
+    arr1[0] = Double(stages.filter{$0 == 1}.count) / Double(max)
+    for i in 2 ..< N {
+        let parent = max - stages.filter{$0 < i }.count
+//        print(parent)
+//        print(Double(stages.filter{$0 == i }.count))
+        arr1[i-1] = Double(stages.filter{$0 == i }.count) / Double(parent)
     }
-    var test = result.sorted(by: {$0.value > $1.value})
-    print(test.sorted(by: {}))
+    let arr2 = arr1
+    var result = arr1.sorted(by: >)
+    for i in 0 ..< result.count {
+        for j in 0 ..< result.count {
+            if arr2[i] == result[j] {
+                
+            }
+        }
+    }
+    print(result)
+//    var test = result.sorted(by: {$0.1 > $1.1})
+
     return []
 }
 
