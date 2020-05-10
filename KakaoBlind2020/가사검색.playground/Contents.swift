@@ -12,7 +12,6 @@ class TrieNode<T: Hashable> {
     var value: T?
     let parent: TrieNode?
     var childNodes: [T: TrieNode] = [:]
-    var count: Int = 0
     var isTerminating = false
     
     init(value: T? = nil, parent: TrieNode? = nil) {
@@ -54,7 +53,6 @@ class Trie {
                 currentNode.add(value: c)
                 currentNode = currentNode.childNodes[c]!
             }
-            currentNode.count += 1
             currentIndex += 1
         }
         
@@ -63,98 +61,56 @@ class Trie {
         }
     }
     
-    func find(word: String) -> Int {
-        guard !word.isEmpty else {
-            return 0
-        }
-        
+    func search(prefix: String, count: Int) -> [String] {
         var currentNode = root
-        var currentIndex = 0
-        
-        let characters: [Character] = word.map{Character(extendedGraphemeClusterLiteral: $0)}
-        
-        while currentIndex < characters.count {
-            let c = characters[currentIndex]
-            guard let childNode = currentNode.childNodes[c] else {
-                // 없을 경우 or ? 를 만난경우
-                if c == Character("?") {
-                    return currentNode.count
-                } else {
-                    break
-                }
+        for value in prefix {
+            guard let child = currentNode.childNodes[value] else {
+                return []
             }
-            currentNode = childNode
-            currentIndex += 1
+            currentNode = child
         }
+        return search(prefix: prefix, node: currentNode, depth: prefix.count, count: count)
+    }
+    
+    func search(prefix: String, node: TrieNode<Character>, depth: Int, count: Int) -> [String] {
+        var result = [String]()
         
-        if currentIndex == characters.count && currentNode.isTerminating {
-            return 1
-        } else {
-            return 0
+        if node.isTerminating && depth == count{
+            result.append(prefix)
         }
+        for child in node.childNodes.values {
+            var prefix = prefix
+            prefix.append(child.value!)
+            result.append(contentsOf: search(prefix: prefix, node: child, depth: depth + 1, count: count))
+        }
+        return result
     }
 }
 
 func solution(_ words:[String], _ queries:[String]) -> [Int] {
     var resultArray: [Int] = []
 //    // Trie를 만들자
-//    let trie: Trie = Trie()
-//    let reversedTrie: Trie = Trie()
-//
-//    // Trie에 값 넣자
-//    for word in words {
-//        trie.insert(word: word)
-//        reversedTrie.insert(word: String(word.reversed()))
-//    }
-//
-//    for q in queries {
-//        // 물음표 위치는 첫단어가 ? 이거나 마지막단어가 ? 2가지 경우
-//        if q.last == Character("?") {
-//            // 마지막이 물음표라 뒤집어서 검색해야함 -> 일반 Trie 에 검색
-//            let count = trie.find(word: q)
-//            resultArray.append(count)
-//        } else {
-//            // 처음이 물음표 -> 거꾸로된 Trie에 검색
-//            let count = reversedTrie.find(word: String(q.reversed()))
-//            resultArray.append(count)
-//        }
-//    }
+    let trie: Trie = Trie()
+    let reversedTrie: Trie = Trie()
+
+    // Trie에 값 넣자
+    for word in words {
+        trie.insert(word: word)
+        reversedTrie.insert(word: String(word.reversed()))
+    }
     
-    for i in 0 ..< queries.count {
-        let q = queries[i]
+    for q in queries {
+        // 물음표 위치는 첫단어가 ? 이거나 마지막단어가 ? 2가지 경우
         if q.last == Character("?") {
-            let trie: Trie = Trie()
-            for word in words {
-                if word.count == q.count {
-                    trie.insert(word: word)
-                }
-            }
-            let count = trie.find(word: q)
-            resultArray.append(count)
+            // 마지막이 물음표라 뒤집어서 검색해야함 -> 일반 Trie 에 검색
+            let search = trie.search(prefix: q.trimmingCharacters(in: ["?"]), count: q.count)
+            resultArray.append(search.count)
         } else {
-            let reversedTrie: Trie = Trie()
-            let reversedWord = String(q.reversed())
-            for word in words {
-                if word.count == q.count {
-                    reversedTrie.insert(word: String(word.reversed()))
-                }
-            }
-            let count = reversedTrie.find(word: reversedWord)
-            resultArray.append(count)
+            // 처음이 물음표 -> 거꾸로된 Trie에 검색
+            let search = reversedTrie.search(prefix: String(q.trimmingCharacters(in: ["?"]).reversed()), count: q.count)
+            resultArray.append(search.count)
         }
     }
+
     return resultArray
-}
-
-let testInput = [["frodo", "front", "frost", "frozen", "frame", "kakao"]]
-let testInput2 = [["fro??", "????o", "fr???", "fro???", "pro?"]]
-let testOutput = [[3, 2, 4, 1, 0]]
-
-for i in 0 ..< testInput.count {
-    let output = solution(testInput[i], testInput2[i])
-    if output == testOutput[i] {
-        print("성공")
-    } else {
-        print("실패: \(output)")
-    }
 }
