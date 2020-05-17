@@ -7,81 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E91FD8A5-F18F-47CE-8378-3948BFC5173A"
-            shouldBeEnabled = "Yes"
+            uuid = "157ADE7B-7DA4-4FBC-A203-8938F7FE0B7B"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "HashTable"
-            landmarkType = "14">
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "solution(_:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "157ADE7B-7DA4-4FBC-A203-8938F7FE0B7B - 2d8cdf6d361bbff0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;.solution(Swift.Array&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int"
+                  moduleName = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uk/Documents/o3o/git/algorismSwift/hash/%E1%84%8B%E1%85%B1%E1%84%8C%E1%85%A1%E1%86%BC/%E1%84%8B%E1%85%B1%E1%84%8C%E1%85%A1%E1%86%BC/main.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "273">
+               </Location>
+               <Location
+                  uuid = "157ADE7B-7DA4-4FBC-A203-8938F7FE0B7B - 4217e1abe11fd151"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Int, (key: Swift.String, value: Swift.Int)) -&gt; Swift.Int in &#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;.solution(Swift.Array&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int"
+                  moduleName = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uk/Documents/o3o/git/algorismSwift/hash/%E1%84%8B%E1%85%B1%E1%84%8C%E1%85%A1%E1%86%BC/%E1%84%8B%E1%85%B1%E1%84%8C%E1%85%A1%E1%86%BC/main.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DFA5F8A8-6088-42D7-BB59-3C83395F3890"
-            shouldBeEnabled = "Yes"
+            uuid = "6AB05D9B-85BF-41D5-9B38-4270867BA8DB"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "HashTable"
-            landmarkType = "14">
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "solution(_:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7D415680-5D07-44E0-92DC-81B1F44608ED"
-            shouldBeEnabled = "Yes"
+            uuid = "4B9467DE-D801-44DE-88F7-2435E47E2036"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "HashTable"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "09F48F54-54A8-45E0-BB65-D531BFF5240B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D31CFA4F-4675-4EF3-A5CC-90252731070F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x110b;&#x1171;&#x110c;&#x1161;&#x11bc;/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "solution(_:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
