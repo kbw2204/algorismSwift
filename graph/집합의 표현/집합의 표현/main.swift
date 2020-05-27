@@ -14,17 +14,17 @@
 
 import Foundation
 
-func find(x: Int, parent: [Int]) -> Int {
+func find(x: Int) -> Int {
     if x == parent[x] {
         return x
     } else {
-        return find(x: parent[x], parent: parent)
+        return find(x: parent[x])
     }
 }
 
-func union(x: Int, y: Int, parent: inout [Int], level: inout [Int]) {
-    var a = find(x: x, parent: parent)
-    var b = find(x: y, parent: parent)
+func union(x: Int, y: Int) {
+    var a = find(x: x)
+    var b = find(x: y)
     
     if level[a] < level[b] {
         swap(&a, &b)
@@ -38,13 +38,8 @@ func union(x: Int, y: Int, parent: inout [Int], level: inout [Int]) {
     }
 }
 
-func findParent(x: Int, y: Int, parent: [Int]) -> String {
-    let a = find(x: x, parent: parent)
-    let b = find(x: y, parent: parent)
-    return a == b ? "YES" : "NO"
-}
 
-let input: [Int] = readLine()!.components(separatedBy: " ").map{Int($0)!}
+let input: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
 var parent: [Int] = []
 var level: [Int] = Array(repeating: 1, count: input[0] + 1)
 for i in 0 ... input[0] {
@@ -52,13 +47,10 @@ for i in 0 ... input[0] {
 }
 
 for _ in 0 ..< input[1] {
-    let line: [Int] = readLine()!.components(separatedBy: " ").map{Int($0)!}
+    let line: [Int] = readLine()!.split(separator: " ").map{Int($0)!}
     if line[0] == 0 {
-        // 합
-        union(x: line[1], y: line[2], parent: &parent, level: &level)
-//        print(parent)
+        union(x: line[1], y: line[2])
     } else if line[0] == 1 {
-        // 출력
-        print(findParent(x: line[1], y: line[2], parent: parent))
+        print(find(x: line[1]) == find(x: line.last!) ? "YES" : "NO")
     }
 }
