@@ -23,7 +23,7 @@ if n < 3 {
         dp[i] = dp[i-1] + dp[i-2]
         dp[i] %= 10007
     }
-    print(dp[n])
+    print(dp.removeLast())
 }
 
 
