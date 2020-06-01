@@ -25,14 +25,15 @@ for _ in 0 ..< n {
 
 for i in 1 ... n {
     for j in 0 ..< i {
+        let currentNode = input[i][j]
         if j == 0 {
-            
-        }
-        else if i-1 == j {
-            
+            dp[i][j] = currentNode + dp[i-1][0]
+        } else if j == i - 1 {
+            dp[i][j] = currentNode + dp[i-1][j-1]
         } else {
-            
+            dp[i][j] = currentNode + [dp[i-1][j-1], dp[i-1][j]].max()!
         }
     }
-    
 }
+
+print(dp[n].max()!)
