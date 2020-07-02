@@ -50,6 +50,7 @@ for _ in 0 ..< count {
     
     for _ in 0 ..< F {
         let ipt = readLine()!.split(separator: " ").map{String($0)}
+        var count = 0
         
         for i in 0 ..< 2 {
             let str = ipt[i]
@@ -63,10 +64,16 @@ for _ in 0 ..< count {
         }
         
         union(idxInfo[ipt.first!]!, idxInfo[ipt.last!]!, &parent, level: &level)
-        print(parent.filter{$0 == find(idxInfo[ipt.first!]!, parent)}.count)
-        print(parent)
+        let target = find(idxInfo[ipt.first!]!, parent)
+        
+        for i in 1 ..< parent.count {
+            if checkParent(x: target, y: parent[i], parent: parent) {
+                count += 1
+            }
+        }
+        print(count)
+//        print(parent.filter{find($0, parent) == find(idxInfo[ipt.first!]!, parent)}.count)
     }
-    print("---")
 }
 
 
