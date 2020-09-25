@@ -39,7 +39,7 @@ for i in 1 ..< count + 1 {
 }
 
 while connectionCount != 0 {
-    let edge: [Int] = readLine()!.components(separatedBy: " ").map{Int($0)!}
+    let edge: [Int] = readLine()!.split(separator: " ").map{Int($0)!}
     union(x: edge[0], y: edge[1], parent: &parent)
     connectionCount -= 1
 }
