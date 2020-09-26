@@ -8,22 +8,15 @@
 import Foundation
 
 func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
-    let lastProgress = 100 - progresses[0]
-    let count = progresses.count
-    var max = Int(ceil(Double(lastProgress / speeds[0])))
-    var lastArr: [Int] = [max]
     var result: [Int] = [1]
+    let date: [Int] = zip(progresses, speeds).map{Int(ceil(Double(100-$0)/Double($1)))}
+    var max = 0
     
-    for i in 1 ..< count {
-        let lastProgress = 100 - progresses[i]
-        let day = Int(ceil(Double(lastProgress / speeds[i])))
-        lastArr.append(day)
-    }
+    max = date.first!
     
-    for i in 1 ..< count {
-        let day = lastArr[i]
-        if max < day {
-            max = day
+    for j in 1 ..< date.count {
+        if max < date[j] {
+            max = date[j]
             result.append(1)
         } else {
             result[result.count-1] += 1
