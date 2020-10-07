@@ -6,100 +6,69 @@
 //  Copyright © 2020 강병우. All rights reserved.
 //
 
-var b: [[Int]] = []
-var endKey = false
+import Foundation
 
+var b: [[Int]] = []
 for _ in 0 ..< 9 {
     b.append(readLine()!.split(separator: " ").map{Int(String($0))!})
 }
-dfs(b, 0, endKey: &endKey)
+dfs(0)
 
-func printB(_ b: [[Int]]) {
-    // 출력
-    for line in b {
-        var result: String = ""
-        for c in line {
-            result += "\(c) "
-        }
-        result.removeLast()
-        print(result)
-    }
-}
-
-func dfs(_ b: [[Int]], _ idx: Int, endKey: inout Bool) {
+func dfs(_ idx: Int) {
     if idx == 81 {
-        print()
-        printB(b)
-        endKey = true
-        return
-    } else if endKey { return }
+        for line in b {
+            var result: String = ""
+            for c in line {
+                result += "\(c) "
+            }
+            result.removeLast()
+            print(result)
+        }
+        exit(0)
+    }
     
     let row = idx / 9
     let col = idx % 9
-    if b[row][col] != 0 {
-        dfs(b, idx+1, endKey: &endKey)
-    } else {
-        for i in 1 ... 9 {
-            var vb = b
-            vb[row][col] = i
-            if isValid(&vb, row, col) {
-                dfs(vb, idx+1, endKey: &endKey)
-            }
-        }
-    }
-}
-
-func checkLine(_ b: inout [[Int]], _ r: Int, _ c: Int, isReversed: Bool) -> Bool {
-    var chck: [Bool] = Array(repeating: true, count: 10)
-    for i in 0 ..< 9 {
-        var val = 0
-        if isReversed {
-            val = b[i][c]
-        } else {
-            val = b[r][i]
-        }
+    
+    let isValid: (Int) -> Bool = {val in
+        // 가로 체크
+        if b[row].contains(val) { return false }
         
-        if val == 0 { continue }
-        // 값 중복 체크
-        else if chck[val] {
-            chck[val] = false
-        } else {
-            return false
-        }
-    }
-    
-    return true
-}
-
-func checkBlock( _ b: inout [[Int]], _ row: Int, _ col: Int) -> Bool {
-    var chck: [Bool] = Array(repeating: true, count: 10)
-    let r = (row/3) * 3
-    let c = (col/3) * 3
-    
-    for i in r ..< r+3 {
-        for j in c ..< c+3 {
-            let val = b[i][j] // 0 ~ 9 값
-            if val == 0 { continue }
-                // 중복체크
-            else if chck[val] {
-                chck[val] = false
-            } else {
-                return false
+        for k in 0 ... 1 {
+            var chck: [Bool] = Array(repeating: true, count: 9)
+            chck[val-1] = false
+            for i in 0 ..< 9 {
+                var v = 0
+                if k == 0 {
+                    // 세로
+                    v = b[i][col]
+                } else {
+                    // 블록
+                    v = b[((row/3)*3)+i/3][((col/3)*3)+i%3]
+                }
+                if v != 0 {
+                    if chck[v-1] {
+                        chck[v-1] = false
+                    } else {
+                        return false
+                    }
+                }
             }
         }
+        return true
     }
-    return true
-}
     
-func isValid(_ b: inout [[Int]], _ row: Int, _ col: Int) -> Bool {
-    // 가로 - 라인당 0 ~ 9 가 있을 수 있음
-    if !checkLine(&b, row, col, isReversed: false) { return false }
-    
-    // 세로
-    if !checkLine(&b, row, col, isReversed: true) { return false }
-    
-    // 사각형 체크
-    if !checkBlock(&b , row, col) { return false }
-
-    return true
+    if b[row][col] != 0 {
+        dfs(idx+1)
+    } else {
+        var isEdited = false
+        for i in 1 ... 9 {
+            if isValid(i) {
+                b[row][col] = i
+                isEdited = true
+                dfs(idx+1)
+            }
+        }
+        if isEdited { b[row][col] = 0 }
+    }
 }
