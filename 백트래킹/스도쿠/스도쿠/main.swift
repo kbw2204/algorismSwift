@@ -9,13 +9,31 @@
 import Foundation
 
 var b: [[Int]] = []
+var zeroPos: [[Int]] = []
+var basket: [[Int]] = []
 for _ in 0 ..< 9 {
-    b.append(readLine()!.split(separator: " ").map{Int(String($0))!})
+    let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
+    var tmp: [Int] = []
+    var chck: [Int] = Array(1...9)
+    
+    b.append(arr)
+    // 수정해야함
+    for i in 0 ..< 9 {
+        let v = arr[i]
+        if v == 0 {
+            tmp.append(i)
+            continue
+        }
+        chck[v-1] = 0
+    }
+    zeroPos.append(tmp)
+    basket.append(chck.filter{$0 != 0})
 }
-dfs(0)
 
-func dfs(_ idx: Int) {
-    if idx == 81 {
+dfs(0,0)
+
+func dfs(_ r: Int, _ c: Int) {
+    if r == 9 {
         for line in b {
             var result: String = ""
             for c in line {
@@ -27,13 +45,11 @@ func dfs(_ idx: Int) {
         exit(0)
     }
     
-    let row = idx / 9
-    let col = idx % 9
+    let col = zeroPos[r][c]
     
     let isValid: (Int) -> Bool = {val in
         // 가로 체크
-        if b[row].contains(val) { return false }
-        
+        if b[r].contains(val) { return false } // 수정해야함
         for k in 0 ... 1 {
             var chck: [Bool] = Array(repeating: true, count: 9)
             chck[val-1] = false
@@ -44,7 +60,7 @@ func dfs(_ idx: Int) {
                     v = b[i][col]
                 } else {
                     // 블록
-                    v = b[((row/3)*3)+i/3][((col/3)*3)+i%3]
+                    v = b[((r/3)*3)+i/3][((col/3)*3)+i%3]
                 }
                 if v != 0 {
                     if chck[v-1] {
@@ -58,17 +74,17 @@ func dfs(_ idx: Int) {
         return true
     }
     
-    if b[row][col] != 0 {
-        dfs(idx+1)
-    } else {
-        var isEdited = false
-        for i in 1 ... 9 {
-            if isValid(i) {
-                b[row][col] = i
-                isEdited = true
-                dfs(idx+1)
+    var isEdited = false
+    for i in basket[r] {
+        if isValid(i) {
+            b[r][col] = i
+            isEdited = true
+            if c == zeroPos[r].count-1 {
+                dfs(r+1, 0)
+            } else {
+                dfs(r, c+1)
             }
         }
-        if isEdited { b[row][col] = 0 }
     }
+    if isEdited { b[r][col] = 0 }
 }
