@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D2A63AE4-C2D7-45B2-8B34-D1F009BABDB4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3520347-CBA0-4E02-BE2F-90A160A992A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "1&#x110e;&#x1161; &#x1102;&#x1172;&#x1109;&#x1173; &#x110f;&#x1173;&#x11af;&#x1105;&#x1165;&#x1109;&#x1173;&#x1110;&#x1165;&#x1105;&#x1175;&#x11bc;/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "solution(_:_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8FC9FEE-0326-44E8-9A2E-4C05A1B402F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "1&#x110e;&#x1161; &#x1102;&#x1172;&#x1109;&#x1173; &#x110f;&#x1173;&#x11af;&#x1105;&#x1165;&#x1109;&#x1173;&#x1110;&#x1165;&#x1105;&#x1175;&#x11bc;/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "solution(_:_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FF3563E-B3D3-4494-B742-FF2A9BB7C717"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "1&#x110e;&#x1161; &#x1102;&#x1172;&#x1109;&#x1173; &#x110f;&#x1173;&#x11af;&#x1105;&#x1165;&#x1109;&#x1173;&#x1110;&#x1165;&#x1105;&#x1175;&#x11bc;/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "solution(_:_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
