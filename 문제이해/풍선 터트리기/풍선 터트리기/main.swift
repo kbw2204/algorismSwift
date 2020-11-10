@@ -6,17 +6,21 @@
 //
 
 func solution(_ a:[Int]) -> Int {
+    if a.count < 3 { return 2}
     var rst = 2
-    var rm = a[a.index(a.startIndex, offsetBy: 2)...].min()!
     var lm = a[0]
+    var dp: [Int] = Array(repeating: a.last!, count: a.count-1)
+    
+    dp[a.count-2] = a.last!
+    for i in (1 ..< a.count-2).reversed() {
+        dp[i] = [a[i+1], dp[i+1]].min()!
+    }
     let check: (Int) -> Bool = { i in
-        if a[i] == rm { rm = a[a.index(a.startIndex, offsetBy: i+1)...].min()! }
-        
         if a[i] < lm {
             lm = [lm, a[i]].min()!
             return true
         }
-        if a[i] < rm {
+        if a[i] < dp[i] {
             return true
         }
         return false
