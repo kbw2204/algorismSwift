@@ -61,8 +61,11 @@ let file = FileIO()
 //let startDate = Date()
 var b: [[Int]] = []
 for _ in 0 ..< 9 {
-    let ipt = file.readString()
-    b.append(ipt.split(separator: " ").map{Int(String($0))!})
+    var tmp: [Int] = []
+    for _ in 0..<9 {
+        tmp.append(file.readInt())
+    }
+    b.append(tmp)
 }
 dfs(0)
 func dfs(_ idx: Int) {
